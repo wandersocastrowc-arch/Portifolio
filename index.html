@@ -130,6 +130,7 @@
 
   /* trust */
   .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 28px;background:var(--bg-2)}
+  @media(max-width:880px){.trust{display:none}}
   .trust-inner{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:36px;justify-content:center;align-items:center}
   .trust-item{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
   .trust-item svg{color:var(--green)}
@@ -182,9 +183,9 @@
 
   /* MÍDIA — logo grid */
   #midia{background:var(--bg-2)}
-  .media-logos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:44px}
-  @media(max-width:760px){.media-logos-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:480px){.media-logos-grid{grid-template-columns:1fr 1fr}}
+  .media-logos-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-bottom:24px}
+  @media(max-width:1100px){.media-logos-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:560px){.media-logos-grid{grid-template-columns:repeat(2,1fr)}}
   .logo-card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:26px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:120px;transition:all .25s;position:relative;overflow:hidden}
   .logo-card:hover{border-color:var(--green);transform:translateY(-3px)}
   .logo-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center, rgba(89,244,178,.06), transparent 70%);opacity:0;transition:opacity .25s}
@@ -291,6 +292,7 @@
       <span class="role-chip">Perito Judicial TJSP · TJES · TJMG</span>
       <span class="role-chip">Delegado CORECON-SP · Jandira</span>
       <span class="role-chip">Palestrante PMI-DF & TEIA</span>
+      <span class="role-chip">Colunista · Portal Acionista</span>
       <span class="role-chip">Apresentador · Econotalks</span>
     </div>
     <div class="hero-cta">
@@ -411,7 +413,7 @@
           <h3>Três frentes, um mesmo método</h3>
           <p>Hoje atuo como <strong>perito judicial nos TJSP, TJES e TJMG</strong>, produzindo laudos técnicos em contratos bancários, revisional, apuração de haveres e superendividamento.</p>
           <p>Há 2 anos sou <strong>Delegado do CORECON-SP em Jandira/SP</strong>, promovendo impacto local — incluindo o Observatório Econômico de Jandira, com indicadores municipais e análise territorial.</p>
-          <p>Em paralelo, presto consultoria financeira a empresas e pessoas, palestro no <strong>PMI-DF</strong> e no <strong>TEIA</strong>, e apresento o podcast <strong>Econotalks</strong>.</p>
+          <p>Em paralelo, presto consultoria financeira a empresas e pessoas, palestro no <strong>PMI-DF</strong> e no <strong>TEIA</strong>, sou <strong>colunista no Portal Acionista</strong> em pautas de investimentos e macroeconomia, e apresento o podcast <strong>Econotalks</strong>.</p>
         </div>
       </div>
     </div>
@@ -434,6 +436,10 @@
         <div class="logo-sub">Imprensa nacional</div>
       </div>
       <div class="logo-card">
+        <div class="logo-text" style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.01em;line-height:1.05">Portal<br>Acionista</div>
+        <div class="logo-sub" style="color:var(--green-soft)">Coluna ativa · Investimentos</div>
+      </div>
+      <div class="logo-card">
         <div class="logo-text condensed">JOVEM PAN</div>
         <div class="logo-sub">Rádio em rede nacional</div>
       </div>
@@ -449,6 +455,14 @@
         <div class="logo-text" style="font-size:20px">Folha 1</div>
         <div class="logo-sub">Norte Fluminense</div>
       </div>
+    </div>
+
+    <div style="text-align:center;margin-bottom:44px">
+      <a href="https://acionista.com.br/author/wanderson/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;padding:11px 22px;border-radius:100px;background:var(--green-dim);border:1px solid var(--green);color:var(--green);text-decoration:none;font-size:14px;font-weight:600">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg>
+        Sou colunista no Portal Acionista — ver minhas publicações
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+      </a>
     </div>
 
     <div class="media-grid">
