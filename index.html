@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Wanderson Castro — Economista, Perito Judicial, Consultor, Palestrante e Delegado do CORECON-SP em Jandira. Perícia econômico-financeira, BPO, planejamento financeiro pessoal e treinamentos corporativos." />
+<title>Wanderson Castro — Economia, Perícia & Consultoria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#59f4b2;
+    --green-soft:#a4f9d2;
+    --green-dim:rgba(89,244,178,.12);
+    --bg:#0a0e0c;
+    --bg-2:#111714;
+    --bg-3:#161e1a;
+    --line:rgba(89,244,178,.18);
+    --text:#e8f5ee;
+    --muted:#8b9a93;
+    --muted-2:#6b7873;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:'Inter',system-ui,sans-serif;
+    line-height:1.6;overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--green);color:#0a0e0c}
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(60% 50% at 80% 0%,rgba(89,244,178,.12),transparent 60%),
+      radial-gradient(40% 40% at 0% 100%,rgba(89,244,178,.08),transparent 60%);
+  }
+
+  /* nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(10,14,12,.78);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .nav-inner{max-width:1240px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:18px 28px}
+  .brand{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:18px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+  .brand-dot{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 14px var(--green)}
+  .nav-links{display:flex;gap:28px;align-items:center}
+  .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s}
+  .nav-links a:hover{color:var(--green)}
+  .nav-cta{background:var(--green);color:#0a0e0c !important;padding:10px 20px;border-radius:100px;font-weight:600 !important;transition:transform .2s,box-shadow .2s}
+  .nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(89,244,178,.35)}
+  @media(max-width:880px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* hero */
+  .hero{max-width:1240px;margin:0 auto;padding:80px 28px 60px;display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+  @media(max-width:880px){.hero{grid-template-columns:1fr;padding:48px 24px 30px;gap:40px}}
+  .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:100px;background:var(--green-dim);border:1px solid var(--line);font-size:13px;font-weight:500;color:var(--green-soft);margin-bottom:24px}
+  .hero-tag::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite}
+  @keyframes pulse{50%{opacity:.4}}
+  .hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(40px,6vw,70px);font-weight:700;letter-spacing:-.035em;line-height:1.02;margin-bottom:22px}
+  .hero h1 span{color:var(--green);font-style:italic}
+  .hero-sub{font-size:clamp(16px,1.5vw,19px);color:var(--muted);max-width:540px;margin-bottom:36px}
+  .hero-roles{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+  .role-chip{padding:6px 14px;border-radius:100px;background:var(--bg-3);border:1px solid var(--line);font-size:13px;color:var(--text);font-weight:500}
+  .hero-cta{display:flex;flex-wrap:wrap;gap:14px}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 26px;border-radius:100px;font-weight:600;font-size:15px;text-decoration:none;transition:all .2s;cursor:pointer;border:none;font-family:inherit}
+  .btn-primary{background:var(--green);color:#0a0e0c}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(89,244,178,.3)}
+  .btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+  .btn-ghost:hover{border-color:var(--green);color:var(--green)}
+  .hero-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:3/4;background:var(--bg-3);border:1px solid var(--line)}
+  .hero-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(10,14,12,.6) 100%)}
+  .hero-photo-card{position:absolute;left:20px;bottom:20px;right:20px;z-index:2;background:rgba(10,14,12,.78);backdrop-filter:blur(10px);padding:14px 18px;border-radius:14px;border:1px solid var(--line)}
+  .hero-photo-card .name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:15px}
+  .hero-photo-card .role{font-size:12px;color:var(--muted)}
+
+  /* trust */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 28px;background:var(--bg-2)}
+  .trust-inner{max-width:1240px;margin:0 auto;display:flex;flex-wrap:wrap;gap:36px;justify-content:center;align-items:center}
+  .trust-item{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+  .trust-item svg{color:var(--green)}
+
+  /* sections */
+  section{padding:90px 28px;position:relative}
+  @media(max-width:760px){section{padding:64px 22px}}
+  .section-inner{max-width:1240px;margin:0 auto}
+  .section-label{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.12em;color:var(--green);text-transform:uppercase;margin-bottom:16px}
+  .section-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,4vw,46px);font-weight:700;letter-spacing:-.025em;line-height:1.1;margin-bottom:18px;max-width:780px}
+  .section-title em{color:var(--green);font-style:italic}
+  .section-lead{color:var(--muted);font-size:17px;max-width:680px;margin-bottom:54px}
+
+  /* SOBRE — duas áreas estilo Andre Perfeito */
+  #sobre{background:var(--bg-2)}
+  .about-split{display:grid;grid-template-columns:380px 1fr;gap:60px;align-items:start}
+  @media(max-width:980px){.about-split{grid-template-columns:1fr;gap:40px}}
+  .about-photo{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line);background:var(--bg-3)}
+  .about-photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .about-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,14,12,.55) 100%)}
+  .about-photo-tag{position:absolute;left:18px;bottom:18px;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:100px;background:rgba(10,14,12,.85);backdrop-filter:blur(8px);border:1px solid var(--line);font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--green-soft)}
+
+  .about-areas{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:760px){.about-areas{grid-template-columns:1fr}}
+  .about-area{background:var(--bg);border:1px solid var(--line);border-radius:22px;padding:32px;transition:border-color .2s}
+  .about-area:hover{border-color:var(--green)}
+  .about-area-num{font-family:'Space Grotesk',sans-serif;color:var(--green);font-size:14px;font-weight:600;letter-spacing:.1em;margin-bottom:14px}
+  .about-area h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:14px;line-height:1.2}
+  .about-area p{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:14px}
+  .about-area p:last-child{margin-bottom:0}
+  .about-area strong{color:var(--text);font-weight:600}
+
+  /* services 3-col */
+  .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  @media(max-width:920px){.services-grid{grid-template-columns:1fr}}
+  .service-card{background:var(--bg-2);border:1px solid var(--line);border-radius:24px;padding:36px 30px;position:relative;overflow:hidden;transition:transform .25s,border-color .25s}
+  .service-card:hover{transform:translateY(-4px);border-color:var(--green)}
+  .service-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),transparent);opacity:0;transition:opacity .25s}
+  .service-card:hover::before{opacity:1}
+  .service-icon{width:52px;height:52px;border-radius:14px;background:var(--green-dim);display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:var(--green)}
+  .service-card h3{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;letter-spacing:-.02em;margin-bottom:10px}
+  .service-target{font-size:13px;color:var(--green);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:18px}
+  .service-card p{color:var(--muted);font-size:15px;margin-bottom:20px}
+  .service-list{list-style:none;margin-bottom:24px}
+  .service-list li{padding:8px 0;font-size:14px;color:var(--text);display:flex;align-items:flex-start;gap:10px;border-top:1px solid var(--line)}
+  .service-list li:first-child{border-top:none}
+  .service-list li::before{content:"▸";color:var(--green);flex-shrink:0;margin-top:1px}
+  .service-link{color:var(--green);text-decoration:none;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:6px;transition:gap .2s}
+  .service-link:hover{gap:10px}
+
+  /* MÍDIA — logo grid */
+  #midia{background:var(--bg-2)}
+  .media-logos-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-bottom:44px}
+  @media(max-width:760px){.media-logos-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:480px){.media-logos-grid{grid-template-columns:1fr 1fr}}
+  .logo-card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:26px 18px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:120px;transition:all .25s;position:relative;overflow:hidden}
+  .logo-card:hover{border-color:var(--green);transform:translateY(-3px)}
+  .logo-card::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at center, rgba(89,244,178,.06), transparent 70%);opacity:0;transition:opacity .25s}
+  .logo-card:hover::before{opacity:1}
+  .logo-text{font-family:'Playfair Display',Georgia,serif;font-weight:900;font-size:24px;color:var(--text);letter-spacing:-.01em;text-align:center;line-height:1;position:relative;z-index:1}
+  .logo-text.italic{font-style:italic}
+  .logo-text.sans{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.02em}
+  .logo-text.condensed{font-family:'Inter',sans-serif;font-weight:800;letter-spacing:.04em;font-size:20px;text-transform:uppercase}
+  .logo-sub{font-size:10px;color:var(--muted-2);text-transform:uppercase;letter-spacing:.12em;margin-top:8px;font-weight:500;position:relative;z-index:1}
+
+  /* Cards de tópicos da mídia */
+  .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  @media(max-width:920px){.media-grid{grid-template-columns:1fr}}
+  .media-card{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:30px;transition:all .25s;text-decoration:none;color:inherit;display:block;position:relative}
+  .media-card:hover{border-color:var(--green);transform:translateY(-3px)}
+  .media-source{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:600;margin-bottom:14px}
+  .media-card h4{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;letter-spacing:-.015em;margin-bottom:10px;line-height:1.25}
+  .media-card p{color:var(--muted);font-size:14px;margin-bottom:18px}
+  .media-meta{display:flex;justify-content:space-between;align-items:center;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+  .media-meta .arrow{color:var(--green)}
+
+  /* DEMAIS CONTRIBUIÇÕES — estilo Andre Perfeito */
+  .contrib-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  @media(max-width:880px){.contrib-grid{grid-template-columns:1fr}}
+  .contrib-card{background:var(--bg-2);border:1px solid var(--line);border-radius:24px;padding:36px;position:relative;overflow:hidden;transition:all .25s;text-decoration:none;color:inherit;display:block}
+  .contrib-card:hover{border-color:var(--green);transform:translateY(-3px)}
+  .contrib-card.featured{background:linear-gradient(135deg,var(--green-dim),transparent);border-color:var(--green)}
+  .contrib-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;color:var(--green);text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:16px}
+  .contrib-card h3{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:600;letter-spacing:-.02em;margin-bottom:12px;line-height:1.15}
+  .contrib-card p{color:var(--muted);font-size:15px;margin-bottom:22px;line-height:1.6}
+  .contrib-meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:18px}
+  .contrib-meta .arrow{color:var(--green);font-size:18px}
+
+  /* trainings */
+  .trainings-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  @media(max-width:760px){.trainings-grid{grid-template-columns:1fr}}
+  .training-card{background:var(--bg-2);border:1px solid var(--line);border-radius:22px;padding:34px;transition:all .25s}
+  .training-card:hover{border-color:var(--green);transform:translateY(-3px)}
+  .training-card h3{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:600;margin-bottom:8px}
+  .training-tag{display:inline-block;font-size:12px;color:var(--green);text-transform:uppercase;letter-spacing:.1em;font-weight:600;margin-bottom:14px}
+  .training-card p{color:var(--muted);font-size:15px;margin-bottom:20px}
+  .training-themes{display:flex;flex-wrap:wrap;gap:8px}
+  .theme-pill{padding:6px 12px;border-radius:100px;background:var(--bg-3);border:1px solid var(--line);font-size:13px;color:var(--text)}
+
+  /* segmentos */
+  #segmentos{background:var(--bg-2)}
+  .segs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+  .seg-card{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:22px;transition:all .2s;display:flex;align-items:center;gap:14px}
+  .seg-card:hover{border-color:var(--green);transform:translateY(-2px)}
+  .seg-icon{width:42px;height:42px;border-radius:10px;background:var(--green-dim);color:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .seg-name{font-weight:600;font-size:14px;line-height:1.2}
+  .seg-cat{font-size:12px;color:var(--muted);margin-top:3px}
+
+  /* contact */
+  .contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  @media(max-width:880px){.contact-wrap{grid-template-columns:1fr}}
+  .contact-card{background:var(--bg-2);border:1px solid var(--line);border-radius:24px;padding:36px;transition:all .2s;text-decoration:none;color:inherit;display:flex;gap:22px;align-items:flex-start}
+  .contact-card:hover{border-color:var(--green);transform:translateY(-3px);box-shadow:0 14px 40px rgba(89,244,178,.12)}
+  .contact-icon{width:52px;height:52px;border-radius:16px;background:var(--green);color:#0a0e0c;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .contact-info{flex:1}
+  .contact-label{font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-weight:600;margin-bottom:6px}
+  .contact-value{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;margin-bottom:6px;word-break:break-word}
+  .contact-desc{font-size:14px;color:var(--muted)}
+  .links-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;justify-content:center}
+  .link-pill{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:100px;background:var(--bg-2);border:1px solid var(--line);color:var(--text);text-decoration:none;font-size:14px;font-weight:500;transition:all .2s}
+  .link-pill:hover{border-color:var(--green);color:var(--green)}
+
+  footer{border-top:1px solid var(--line);padding:40px 28px;text-align:center}
+  footer p{color:var(--muted-2);font-size:13px;margin-bottom:8px}
+  footer .corecon{color:var(--muted);font-size:12px}
+
+  .fade-in{opacity:0;transform:translateY(20px);transition:opacity .7s,transform .7s}
+  .fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="brand"><span class="brand-dot"></span> Wanderson Castro</div>
+    <div class="nav-links">
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#midia">Mídia</a>
+      <a href="#contribuicoes">Contribuições</a>
+      <a href="#contato" class="nav-cta">Falar agora</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-text">
+    <span class="hero-tag">Disponível para novos projetos · 2026</span>
+    <h1>Economia, perícia e <span>decisões financeiras</span> com método.</h1>
+    <p class="hero-sub">
+      Atuo como economista, perito judicial e consultor — apoiando pessoas, empresas e o sistema de Justiça
+      a tomarem decisões mais seguras em ambientes de incerteza.
+    </p>
+    <div class="hero-roles">
+      <span class="role-chip">Economista UFF</span>
+      <span class="role-chip">Perito Judicial TJSP · TJES · TJMG</span>
+      <span class="role-chip">Delegado CORECON-SP · Jandira</span>
+      <span class="role-chip">Palestrante PMI-DF & TEIA</span>
+      <span class="role-chip">Apresentador · Econotalks</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="https://wa.me/5522999191778?text=Ol%C3%A1%2C%20Wanderson!%20Vim%20pelo%20seu%20portif%C3%B3lio." target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.1.2 2.2 3.3 5.3 4.7 2 .8 2.7.9 3.7.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+        WhatsApp · (22) 99919-1778
+      </a>
+      <a class="btn btn-ghost" href="mailto:wanderson_castro@outlook.com?subject=Contato%20pelo%20portif%C3%B3lio">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        E-mail
+      </a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/wanderson-hero.jpg" alt="Wanderson Castro de Oliveira" />
+    <div class="hero-photo-card">
+      <div class="name">Wanderson Castro de Oliveira</div>
+      <div class="role">Economista CORECON-SP nº 38.114</div>
+    </div>
+  </div>
+</header>
+
+<!-- TRUST -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Fonte para mídia nacional</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Delegado CORECON-SP</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> PMI-DF · TEIA</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Podcast Econotalks</div>
+  </div>
+</div>
+
+<!-- SOBRE — duas áreas -->
+<section id="sobre">
+  <div class="section-inner">
+    <span class="section-label">Sobre Wanderson</span>
+    <h2 class="section-title">Economista <em>de campo</em> — entre o rigor técnico e a leitura de cenário.</h2>
+
+    <div class="about-split">
+      <div class="about-photo">
+        <img src="assets/wanderson-formal.jpg" alt="Wanderson Castro" />
+        <div class="about-photo-tag">CORECON-SP nº 38.114</div>
+      </div>
+
+      <div class="about-areas">
+        <div class="about-area">
+          <div class="about-area-num">01 · Trajetória</div>
+          <h3>Da formação à prática institucional</h3>
+          <p>Graduado em <strong>Ciências Econômicas pela Universidade Federal Fluminense (UFF)</strong>, com especializações em modelagem financeira (R2C), perícia judicial (SINDECON-SP) e perícia trabalhista (APEJESP). Certificado AAI pela ANCORD.</p>
+          <p>Trajetória executiva em finanças: <strong>Supervisão em indústria de importação</strong>, <strong>Gerência Financeira em indústria</strong> (com estruturação de FIDC e plano de recuperação) e <strong>Financial Advisor em boutique de investimentos</strong>.</p>
+          <p>Premiação acadêmica no CONFICT/UFF (2020) com pesquisa em Value at Risk aplicado ao mercado de seminovos.</p>
+        </div>
+
+        <div class="about-area">
+          <div class="about-area-num">02 · Atuação atual</div>
+          <h3>Três frentes, um mesmo método</h3>
+          <p>Hoje atuo como <strong>perito judicial nos TJSP, TJES e TJMG</strong>, produzindo laudos técnicos em contratos bancários, revisional, apuração de haveres e superendividamento.</p>
+          <p>Há 2 anos sou <strong>Delegado do CORECON-SP em Jandira/SP</strong>, promovendo impacto local — incluindo o Observatório Econômico de Jandira, com indicadores municipais e análise territorial.</p>
+          <p>Em paralelo, presto consultoria financeira a empresas e pessoas, palestro no <strong>PMI-DF</strong> e no <strong>TEIA</strong>, e apresento o podcast <strong>Econotalks</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos">
+  <div class="section-inner">
+    <span class="section-label">O que faço</span>
+    <h2 class="section-title">Três frentes, <em>um mesmo método:</em> economia aplicada à decisão.</h2>
+    <p class="section-lead">
+      Cada vertical fala uma linguagem diferente — pessoa física precisa de clareza, empresa precisa de eficiência,
+      Justiça precisa de imparcialidade técnica. Eu atendo as três, com o mesmo rigor analítico.
+    </p>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="service-target">Para pessoas</div>
+        <h3>Planejamento Financeiro Pessoal</h3>
+        <p>Consultoria individual e familiar com sigilo absoluto. Organização de orçamento, quitação inteligente de dívidas e construção de objetivos financeiros com método.</p>
+        <ul class="service-list">
+          <li>Diagnóstico de fluxo de renda e patrimônio</li>
+          <li>Estratégia para sair do superendividamento</li>
+          <li>Negociação e revisão de contratos de crédito</li>
+          <li>Construção de reserva, metas e investimentos</li>
+          <li>Educação financeira aplicada ao seu caso</li>
+        </ul>
+        <a href="#contato" class="service-link">Quero organizar minha vida financeira →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/></svg></div>
+        <div class="service-target">Para empresas</div>
+        <h3>BPO Financeiro & Consultoria</h3>
+        <p>Estruturação financeira de pequenas e médias empresas, do dia a dia operacional à decisão estratégica.</p>
+        <ul class="service-list">
+          <li>BPO Financeiro completo</li>
+          <li>Diagnóstico e plano de recuperação</li>
+          <li>Estruturação de KPIs e dashboards</li>
+          <li>Modelagem financeira e estudo de viabilidade</li>
+          <li>Assessoria contínua à gestão</li>
+        </ul>
+        <a href="#contato" class="service-link">Quero estruturar meu financeiro →</a>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l8 4v6c0 4.5-3.5 8-8 9-4.5-1-8-4.5-8-9V7l8-4z"/></svg></div>
+        <div class="service-target">Para o jurídico</div>
+        <h3>Perícia Econômico-Financeira</h3>
+        <p>Atuação como perito judicial em processos do TJSP, TJES e TJMG — laudos técnicos, cálculos e pareceres com fundamentação metodológica clara.</p>
+        <ul class="service-list">
+          <li>Perícia em contratos bancários e revisional</li>
+          <li>Cálculos de juros, comissões e financiamentos</li>
+          <li>Apuração de haveres e indenizações</li>
+          <li>Superendividamento (Lei 14.181/21)</li>
+          <li>Pareceres e assistência técnica para advogados</li>
+        </ul>
+        <a href="#contato" class="service-link">Solicitar perícia ou parecer →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MÍDIA -->
+<section id="midia">
+  <div class="section-inner">
+    <span class="section-label">Presença na mídia</span>
+    <h2 class="section-title">Voz <em>técnica</em> em pautas de economia, mercado e comportamento.</h2>
+    <p class="section-lead">
+      Sou <strong style="color:var(--text)">fonte recorrente para a mídia</strong> em temas como mercado de trabalho,
+      decisões macroeconômicas, crédito e seus impactos no dia a dia de empresas e pessoas. Já contribuí com:
+    </p>
+
+    <div class="media-logos-grid">
+      <div class="logo-card">
+        <div class="logo-text italic">O Globo</div>
+        <div class="logo-sub">Jornal Nacional</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-text condensed">JOVEM PAN</div>
+        <div class="logo-sub">Rádio · TV</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-text" style="font-size:18px;line-height:1.05">Correio<br>Brasiliense</div>
+        <div class="logo-sub">Brasília · DF</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-text sans">Plox</div>
+        <div class="logo-sub">Vale do Aço · MG</div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-text" style="font-size:20px">Folha 1</div>
+        <div class="logo-sub">Campos dos Goytacazes</div>
+      </div>
+    </div>
+
+    <div class="media-grid">
+      <div class="media-card">
+        <div class="media-source">Mercado de trabalho</div>
+        <h4>Desemprego, vagas e queda de renda</h4>
+        <p>Análises sobre o cenário do mercado de trabalho e os efeitos do desemprego sobre o consumo e a renda das famílias.</p>
+        <div class="media-meta"><span>Entrevista / Citação</span><span class="arrow">→</span></div>
+      </div>
+      <div class="media-card">
+        <div class="media-source">Crédito e endividamento</div>
+        <h4>Consignado CLT: o que muda para o trabalhador</h4>
+        <p>Análise sobre a expansão do crédito consignado para trabalhadores CLT e os riscos de comprometimento da renda.</p>
+        <div class="media-meta"><span>Entrevista publicada</span><span class="arrow">→</span></div>
+      </div>
+      <div class="media-card">
+        <div class="media-source">Macroeconomia</div>
+        <h4>Inflação, SELIC e câmbio: leitura de cenário</h4>
+        <p>Análises técnicas sobre IPCA, política monetária e impactos cambiais para empresas e investidores pessoa física.</p>
+        <div class="media-meta"><span>Coluna / Análise</span><span class="arrow">→</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMAIS CONTRIBUIÇÕES -->
+<section id="contribuicoes">
+  <div class="section-inner">
+    <span class="section-label">Demais contribuições</span>
+    <h2 class="section-title">Para <em>além do escritório</em> — onde também construo valor.</h2>
+    <p class="section-lead">
+      Conteúdo, ensino e impacto público são parte do que faço. Cada frente abaixo é um projeto vivo, com cadência própria.
+    </p>
+
+    <div class="contrib-grid">
+
+      <a class="contrib-card featured" href="https://wandersocastrowc-arch.github.io/observatorio-jandira/" target="_blank" rel="noopener">
+        <div class="contrib-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 3v18h18M7 14l4-4 4 4 5-7"/></svg>
+          Plataforma · Impacto local
+        </div>
+        <h3>Observatório Econômico de Jandira</h3>
+        <p>Plataforma com indicadores municipais e análise territorial — desenvolvida pela equipe que coordeno como Delegado do CORECON-SP. Abre dados de mercado, emprego e desenvolvimento para empresas, instituições e cidadãos.</p>
+        <div class="contrib-meta"><span>wandersocastrowc-arch.github.io/observatorio-jandira</span><span class="arrow">↗</span></div>
+      </a>
+
+      <a class="contrib-card" href="https://www.youtube.com/@wanderson.casttro" target="_blank" rel="noopener">
+        <div class="contrib-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.5 15.6V8.4L15.8 12l-6.3 3.6z"/></svg>
+          Podcast · Conteúdo
+        </div>
+        <h3>Econotalks</h3>
+        <p>Podcast autoral de economia descomplicada com profundidade técnica. Duas temporadas gravadas, episódios sobre Nobel, capitalismo de dependência, terras raras, lavagem de dinheiro e pautas conjunturais. Disponível no Spotify, Apple Podcasts e YouTube.</p>
+        <div class="contrib-meta"><span>youtube.com/@wanderson.casttro</span><span class="arrow">↗</span></div>
+      </a>
+
+      <div class="contrib-card">
+        <div class="contrib-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12c0 5-9 9-9 9s-9-4-9-9V5l9-3 9 3v7z"/></svg>
+          Palestras · Keynotes
+        </div>
+        <h3>PMI-DF · TEIA</h3>
+        <p>Palestrante no PMI-DF (Brasília) sobre ESG e gestão de projetos, e no TEIA — espaço voltado a empreendedores. Temas recorrentes: leitura inteligente de números, decisão sob incerteza, economia comportamental e visão estratégica.</p>
+        <div class="contrib-meta"><span>Sob demanda · agenda 2026</span><span class="arrow">→</span></div>
+      </div>
+
+      <div class="contrib-card">
+        <div class="contrib-eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 14l9-5-9-5-9 5 9 5z M12 14v7M5 12v5l7 4 7-4v-5"/></svg>
+          Treinamentos · In-company
+        </div>
+        <h3>Workshops Corporativos</h3>
+        <p>Treinamentos sob medida para times de empresas que querem desenvolver colaboradores em finanças, leitura de KPIs e tomada de decisão. Combinação de teoria, casos reais e dinâmicas práticas.</p>
+        <div class="contrib-meta"><span>Pacotes a partir de 4h</span><span class="arrow">→</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SEGMENTOS -->
+<section id="segmentos">
+  <div class="section-inner">
+    <span class="section-label">Onde já atuei</span>
+    <h2 class="section-title">Quase <em>100 negócios atendidos</em> em diferentes segmentos.</h2>
+    <p class="section-lead">
+      Entre consultoria autoral, atuação como consultor sênior em consultoria de gestão e projetos pelo Movimento
+      Empresa Júnior (MEJ), passei por uma diversidade ampla de setores — o que me permite traduzir economia para a
+      realidade de cada operação.
+    </p>
+
+    <div class="segs-grid">
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg></div><div><div class="seg-name">Comércio & Varejo</div><div class="seg-cat">Mercearias, atacado, lojas</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 3l-2 6h18l-2-6M3 9v10a2 2 0 002 2h14a2 2 0 002-2V9"/></svg></div><div><div class="seg-name">Alimentação</div><div class="seg-cat">Cafeterias, food service</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 12h18M3 17h18"/></svg></div><div><div class="seg-name">Indústria</div><div class="seg-cat">Importação e nutrição animal</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 3v18M3 12h18"/></svg></div><div><div class="seg-name">Mercado financeiro</div><div class="seg-cat">Boutiques de investimento</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.5V18a2 2 0 01-2 2H4a2 2 0 01-2-2v-6.5M6 7v3M18 7v3M2 11.5L12 4l10 7.5"/></svg></div><div><div class="seg-name">Hotelaria & Turismo</div><div class="seg-cat">Pousadas e operadoras</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg></div><div><div class="seg-name">Construção & Reformas</div><div class="seg-cat">Pequenas construtoras</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5 5 2 8-7-4-7 4 2-8-5-5h7z"/></svg></div><div><div class="seg-name">Beleza & Bem-estar</div><div class="seg-cat">Salões, estética, terapias</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6z"/></svg></div><div><div class="seg-name">Saúde</div><div class="seg-cat">Consultórios e clínicas</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.7l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.7l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div><div><div class="seg-name">Tecnologia</div><div class="seg-cat">SaaS e prestadores</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18l-2 14H5L3 6zM8 6V4a2 2 0 014 0v2"/></svg></div><div><div class="seg-name">Educação</div><div class="seg-cat">Cursos, mentorias, EAD</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z M3 9h18 M9 3v18"/></svg></div><div><div class="seg-name">Serviços B2B</div><div class="seg-cat">Consultorias e agências</div></div></div>
+      <div class="seg-card"><div class="seg-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z"/></svg></div><div><div class="seg-name">Profissionais liberais</div><div class="seg-cat">Médicos, advogados, autônomos</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato">
+  <div class="section-inner" style="text-align:center">
+    <span class="section-label">Vamos conversar</span>
+    <h2 class="section-title" style="margin-left:auto;margin-right:auto">Pronto para tomar a próxima <em>decisão financeira</em> com método?</h2>
+    <p class="section-lead" style="margin-left:auto;margin-right:auto">Escolha o canal que preferir. Costumo responder em até 24h úteis.</p>
+
+    <div class="contact-wrap" style="text-align:left">
+      <a class="contact-card" href="https://wa.me/5522999191778?text=Ol%C3%A1%2C%20Wanderson!%20Vim%20pelo%20seu%20portif%C3%B3lio." target="_blank" rel="noopener">
+        <div class="contact-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1s-.8.9-.9 1.1c-.2.2-.3.2-.6.1-1.7-.8-2.8-1.5-3.9-3.4-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5s-.7-1.7-1-2.3c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1.1 1-1.1 2.5s1.1 2.9 1.3 3.1c.1.2 2.2 3.3 5.3 4.7 2 .8 2.7.9 3.7.7.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.2-.3-.3-.6-.4zM12 2C6.5 2 2 6.5 2 12c0 1.7.5 3.4 1.3 4.8L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg></div>
+        <div class="contact-info">
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">(22) 9 9919-1778</div>
+          <div class="contact-desc">Resposta rápida · clique para abrir conversa pronta</div>
+        </div>
+      </a>
+      <a class="contact-card" href="mailto:wanderson_castro@outlook.com?subject=Contato%20pelo%20portif%C3%B3lio">
+        <div class="contact-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="contact-info">
+          <div class="contact-label">E-mail</div>
+          <div class="contact-value">wanderson_castro@outlook.com</div>
+          <div class="contact-desc">Para propostas, perícias e demandas formais</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="links-row">
+      <a class="link-pill" href="https://www.linkedin.com/in/wandersondeoliveira/" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14C2.2 0 0 2.2 0 5v14c0 2.8 2.2 5 5 5h14c2.8 0 5-2.2 5-5V5c0-2.8-2.2-5-5-5zM7.1 20.5H3.6V9h3.5v11.5zM5.4 7.4C4.3 7.4 3.4 6.5 3.4 5.4s.9-2 2-2 2 .9 2 2-.9 2-2 2zM20.5 20.5H17V14.9c0-1.3 0-3-1.8-3-1.8 0-2.1 1.4-2.1 2.9v5.7H9.6V9h3.4v1.6h.1c.5-.9 1.6-1.8 3.3-1.8 3.5 0 4.2 2.3 4.2 5.3v6.4z"/></svg>
+        LinkedIn
+      </a>
+      <a class="link-pill" href="https://wandersocastrowc-arch.github.io/observatorio-jandira/" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 4 4 5-7"/></svg>
+        Observatório Jandira
+      </a>
+      <a class="link-pill" href="https://creators.spotify.com/pod/profile/wanderson-castro6/" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0z"/></svg>
+        Spotify
+      </a>
+      <a class="link-pill" href="https://www.youtube.com/@wanderson.casttro" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 00.5 6.2C0 8 0 12 0 12s0 4 .5 5.8a3 3 0 002.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 002.1-2.1C24 16 24 12 24 12s0-4-.5-5.8zM9.5 15.6V8.4L15.8 12l-6.3 3.6z"/></svg>
+        YouTube
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Wanderson Castro de Oliveira · Todos os direitos reservados.</p>
+  <p class="corecon">Economista CORECON-SP nº 38.114 · Delegado em Jandira/SP · Perito Judicial TJSP · TJES · TJMG</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
+  },{threshold:.12});
+  document.querySelectorAll('.service-card, .media-card, .seg-card, .contact-card, .training-card, .contrib-card, .about-area, .logo-card').forEach(el=>{
+    el.classList.add('fade-in'); io.observe(el);
+  });
+</script>
+</body>
+</html>
